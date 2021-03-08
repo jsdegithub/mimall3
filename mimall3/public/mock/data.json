@@ -1,0 +1,9 @@
+{
+    "data":{
+        "name":"jinshuo",
+        "age":26,
+        "sex":1
+    },
+    "msg":"this is res.msg.",
+    "status":0
+}
