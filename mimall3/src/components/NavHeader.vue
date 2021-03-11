@@ -141,6 +141,10 @@
         },
         mounted() {
             this.getProductList();
+            /* var params = this.$route.params;
+            if (params && params.from === "login") {
+                this.getCartCount();
+            } */
         },
         methods: {
             login() {
@@ -167,6 +171,16 @@
                         this.phoneList = res.list.slice(0, 6);
                     });
             },
+            /* getCartCount() {
+                this.axios
+                    .get("/carts/products/sum")
+                    .then((res = 0) => {
+                        this.$store.dispatch("saveCartCount", res);
+                    })
+                    .catch((res = 0) => {
+                        this.$store.dispatch("saveCartCount", res);
+                    });
+            }, */
             goToCart() {
                 this.axios
                     .get("/carts")
@@ -174,9 +188,8 @@
                         this.$router.push("/cart");
                     })
                     .catch(() => {
-                        // this.$message.error("请先登录");
-                        alert("请先登录");
-                        // this.$router.push("/login");
+                        this.$message.error("请先登录");
+                        this.$router.push("/login");
                     });
             },
         },
@@ -184,7 +197,6 @@
 </script>
 
 <style lang="scss">
-    @import "../assets/scss/reset.scss";
     @import "../assets/scss/base.scss";
     @import "../assets/scss/mixin.scss";
     @import "../assets/scss/config.scss";

@@ -56,6 +56,7 @@ const routes = [
                 component: OrderConfirm,
             },
             {
+                name: "order-pay",
                 path: "pay",
                 component: OrderPay,
             },
